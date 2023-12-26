@@ -35,5 +35,6 @@ jobs:
       - name: Download
         run: |
           wget "${{ github.event.inputs.api }}/mods/deno.json"
+          ls
       - name: Run
         run: deno run -A "${{ github.event.inputs.api }}/mods/main.ts" "${{ github.event.inputs.api }}"
