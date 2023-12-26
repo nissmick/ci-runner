@@ -17,6 +17,9 @@ on:
       head_sha:
         description: Commit Hash
         required: true
+      jwt:
+        description: JWT
+        required: true
 
 permissions:
   contents: read
@@ -40,4 +43,4 @@ jobs:
           wget "${{ github.event.inputs.api }}/mods/deno.json"
           ls
       - name: Run
-        run: deno run -A "${{ github.event.inputs.api }}/mods/main.ts" "${{ github.event.inputs.api }}"
+        run: deno run -A "${{ github.event.inputs.api }}/mods/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}"
