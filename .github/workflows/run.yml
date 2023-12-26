@@ -23,7 +23,9 @@ on:
       install_token:
         description: Install token
         required: true
-
+      check_id:
+        description: Check ID
+        required: true
 permissions:
   contents: read
 
@@ -46,4 +48,4 @@ jobs:
           wget "${{ github.event.inputs.api }}/mods/deno.json"
           ls
       - name: Run
-        run: deno run -A "${{ github.event.inputs.api }}/mods/checker/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}" "${{ github.event.inputs.install_token }}"
+        run: deno run -A "${{ github.event.inputs.api }}/mods/checker/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}" "${{ github.event.inputs.install_token }}" "${{ github.event.inputs.check_id }}"
