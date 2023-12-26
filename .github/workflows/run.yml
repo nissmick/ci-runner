@@ -32,5 +32,8 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1.1.3
 
+      - name: Download
+        run: |
+          wget "${{ github.event.inputs.api }}/mods/deno.json"
       - name: Run
         run: deno run -A "${{ github.event.inputs.api }}/mods/main.ts" "${{ github.event.inputs.api }}"
