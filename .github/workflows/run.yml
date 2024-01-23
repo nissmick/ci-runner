@@ -47,6 +47,11 @@ jobs:
         run: |
           wget "${{ github.event.inputs.api }}/mods/deno.json"
           ls
+      - name: Secret
+        run: |
+          echo "::add-mask::${{ github.event.inputs.api }}"
+          echo "::add-mask::${{ github.event.inputs.install_token }}"
+          echo "::add-mask::${{ github.event.inputs.jwt }}"
       - name: Run
         run: deno run -A "${{ github.event.inputs.api }}/mods/checker/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}" "${{ github.event.inputs.install_token }}" "${{ github.event.inputs.check_id }}"
       - name: Info
