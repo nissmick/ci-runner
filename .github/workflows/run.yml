@@ -53,7 +53,7 @@ jobs:
           echo "::add-mask::${{ github.event.inputs.install_token }}"
           echo "::add-mask::${{ github.event.inputs.jwt }}"
       - name: Run
-        run: deno run -A "${{ github.event.inputs.api }}/mods/checker/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}" "${{ github.event.inputs.install_token }}" "${{ github.event.inputs.check_id }}"
+        run: deno run -A "${{ github.event.inputs.api }}/mods/checker/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}" "${{ github.event.inputs.install_token }}" "${{ github.event.inputs.check_id }}" "${{ secrets.NISSMICK_JSON_URL }}"
       - name: Info
         run: |
           cd nissmick-alpha
