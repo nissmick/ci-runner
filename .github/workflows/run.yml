@@ -56,7 +56,7 @@ jobs:
         run: deno run -A "${{ github.event.inputs.api }}/mods/checker/main.ts" "${{ github.event.inputs.api }}" "${{ github.event.inputs.head_sha }}" "${{ github.event.inputs.jwt }}" "${{ github.event.inputs.install_token }}" "${{ github.event.inputs.check_id }}"
       - name: Info
         run: |
-          cd nissmick-core
+          cd nissmick-alpha
           
           echo 'ls'
           ls
